@@ -1,5 +1,6 @@
 import SearchInput from '@/components/SearchInput';
 import styles from '../../styles/Home.module.css'
+import Banner from '@/components/Banner';
 
 const Home = () => {
 
@@ -28,6 +29,7 @@ const Home = () => {
           />
         </div>
       </header>
+      <Banner />
     </div>
   )
 }
