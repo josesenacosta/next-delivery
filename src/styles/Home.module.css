@@ -14,9 +14,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 27px;
 }
 .headerTopLeft {
-
+  
 }
 .headerTitle {
   font-weight: 500;
