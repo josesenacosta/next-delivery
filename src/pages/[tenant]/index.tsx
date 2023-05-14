@@ -1,6 +1,7 @@
 import SearchInput from '@/components/SearchInput';
 import styles from '../../styles/Home.module.css'
 import Banner from '@/components/Banner';
+import ProductItem from '@/components/ProductItem';
 
 const Home = () => {
 
@@ -30,6 +31,13 @@ const Home = () => {
         </div>
       </header>
       <Banner />
+      <div className={styles.grid}>
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+      </div>
     </div>
   )
 }
