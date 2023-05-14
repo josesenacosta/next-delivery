@@ -1,18 +1,27 @@
+import { Product } from '@/types/Product'
 import styles from './ProductItem.module.css'
+import Link from 'next/link';
 
-const ProductItem = () => {
+type Props = {
+  data: Product;
+  mainColor: string;
+  secondColor: string;
+}
+
+const ProductItem = ({ data, mainColor, secondColor }: Props) => {
   return (
-    <div className={styles.container}>
-      <div className={styles.head}></div>
+    <Link className={styles.container} href={`/next-delivery/product/${data.id}`}>
+      <div className={styles.head} style={{ backgroundColor: secondColor }}></div>
       <div className={styles.info}>
         <div className={styles.img}>
           <img src="/tmp/burger1.png" alt="" />
         </div>
-        <div className={styles.catName}>Tradiconal</div>
-        <div className={styles.name}>Texas Burger</div>
-        <div className={styles.price}>R$ 25,50</div>
+        <div className={styles.catName}>{data.categoryName}</div>
+        <div className={styles.name}>{data.name}</div>
+        <div className={styles.price} style={{ color: mainColor }}>{data.price}</div>
       </div>
-    </div>
+    </Link >
+
   )
 }
 

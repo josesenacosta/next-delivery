@@ -1,14 +1,14 @@
 .container {
+  display: block;
   background-color: #ffffff;
   box-shadow: 0px 8px 40px rgba(0,0,0, 0.08);
   border-radius: 8px;
   overflow: hidden;
+  text-decoration: none;
 }
 
 .head {
   height: 90px;
-  background-color:#fb9400;
-  
 }
 
 .info {
@@ -36,7 +36,7 @@
   font-size: 18px;
 }
 .price {
-  color: #fb9400;
   font-weight: 600;
   font-size: 15px;
 }
+
