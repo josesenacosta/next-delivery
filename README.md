@@ -8,11 +8,11 @@ A aplicação é construída utilizando o framework Next.js, que combina o desen
 
 ## Funcionalidades
 
-Visualizcao de cardapio de acordo com o restaurante
-Adição de itens ao carrinho de compras
-Realização de pedidos
-Histórico de pedidos
-Registro e autenticação de usuários
+- Visualizcao de cardapio de acordo com o restaurante
+- Adição de itens ao carrinho de compras
+- Realização de pedidos
+- Histórico de pedidos
+- Registro e autenticação de usuários
 
 ## Multi Tenancy
 
