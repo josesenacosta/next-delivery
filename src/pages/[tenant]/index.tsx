@@ -4,10 +4,18 @@ import styles from '../../styles/Home.module.css'
 import Banner from '@/components/Banner';
 import ProductItem from '@/components/ProductItem';
 import { GetServerSideProps } from 'next';
-import { getTenantResponse, useApi } from '@/libs/useApi';
-import { redirect } from 'next/dist/server/api-utils';
+import { useAppContext } from '@/contexts/AppContext';
+import { useEffect } from 'react';
+import { Tenant } from '@/types/Tenant';
+import { useApi } from '@/libs/useApi';
 
 const Home = (data: Props) => {
+
+  const { tenant, setTenant } = useAppContext();
+
+  useEffect(() => {
+    setTenant(data.tenant);
+  }, [])
 
   const handleSearch = (searchValue: string) => {
     console.log(searchValue)
@@ -24,13 +32,13 @@ const Home = (data: Props) => {
             <div className={styles.headerSubTitle}>O que deja para hoje?</div>
           </div>
           <div className={styles.headerTopRight}>
-            <div className={styles.menuButton} style={{ color: data.tenant.mainColor }}></div>
+            <div className={styles.menuButton} style={{ color: tenant?.mainColor }}></div>
           </div>
         </div>
         <div className={styles.headerBottom}>
           <SearchInput
             onSearch={handleSearch}
-            mainColor={data.tenant.mainColor}
+
           />
         </div>
       </header>
@@ -38,23 +46,21 @@ const Home = (data: Props) => {
       <div className={styles.grid}>
         <ProductItem
           data={{ id: 1, image: '/tmp/burger1.png', name: 'Texas Burger', price: "R$ 25,50", categoryName: 'Tradicional' }}
-          mainColor={data.tenant.mainColor}
-          secondColor={data.tenant.secondColor}
         />
         <ProductItem
           data={{ id: 2, image: '/tmp/burger1.png', name: 'Texas Burger', price: "R$ 25,50", categoryName: 'Tradicional' }}
-          mainColor={data.tenant.mainColor}
-          secondColor={data.tenant.secondColor}
         />
         <ProductItem
           data={{ id: 3, image: '/tmp/burger1.png', name: 'Texas Burger', price: "R$ 25,50", categoryName: 'Tradicional' }}
-          mainColor={data.tenant.mainColor}
-          secondColor={data.tenant.secondColor}
         />
         <ProductItem
           data={{ id: 4, image: '/tmp/burger1.png', name: 'Texas Burger', price: "R$ 25,50", categoryName: 'Tradicional' }}
-          mainColor={data.tenant.mainColor}
-          secondColor={data.tenant.secondColor}
+        />
+        <ProductItem
+          data={{ id: 5, image: '/tmp/burger1.png', name: 'Texas Burger', price: "R$ 25,50", categoryName: 'Tradicional' }}
+        />
+        <ProductItem
+          data={{ id: 6, image: '/tmp/burger1.png', name: 'Texas Burger', price: "R$ 25,50", categoryName: 'Tradicional' }}
         />
 
       </div>
@@ -65,7 +71,7 @@ const Home = (data: Props) => {
 export default Home;
 
 type Props = {
-  tenant: getTenantResponse
+  tenant: Tenant
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
