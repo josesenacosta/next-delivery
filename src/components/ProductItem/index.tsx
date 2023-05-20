@@ -13,7 +13,7 @@ const ProductItem = ({ data }: Props) => {
 
   return (
     <Link className={styles.container} href={`/${tenant?.slug}/product/${data.id}`}>
-      <div className={styles.head} style={{ backgroundColor: tenant?.mainColor }}></div>
+      <div className={styles.head} style={{ backgroundColor: tenant?.secondColor }}></div>
       <div className={styles.info}>
         <div className={styles.img}>
           <img src="/tmp/burger1.png" alt="" />
