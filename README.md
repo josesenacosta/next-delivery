@@ -1,3 +1,29 @@
+# Aplicação de Delivery Multi Tenancy utilizando React e Next.js
+
+## Descrição
+
+Este é um projeto de uma aplicação de delivery multi tenancy desenvolvida utilizando React e Next.js. A aplicação permite que os usuários façam pedidos de alimentos de restaurantes locais. Além disso, a aplicação aplica estilizações diferentes para cada tenant, proporcionando uma experiência personalizada para cada restaurante.
+
+A aplicação é construída utilizando o framework Next.js, que combina o desenvolvimento de frontend com server-side rendering (SSR) e geração estática (Static Generation), proporcionando uma experiência de carregamento rápido e otimizada para mecanismos de busca.
+
+## Funcionalidades
+
+Visualizcao de cardapio de acordo com o restaurante
+Adição de itens ao carrinho de compras
+Realização de pedidos
+Histórico de pedidos
+Registro e autenticação de usuários
+
+## Multi Tenancy
+
+A aplicação utiliza o conceito de multi tenancy para aplicar estilizações diferentes para cada tenant (restaurante). Cada restaurante possui sua própria identidade visual, como cores, logotipos e estilos de fonte, proporcionando uma experiência única para os usuários.
+
+## Tecnologias utilizadas
+
+React: biblioteca JavaScript para a construção de interfaces de usuário
+Next.js: framework React para criação de aplicações SSR e Static Generation
+CSS Modules: sistema de estilização modular para componentes React
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
