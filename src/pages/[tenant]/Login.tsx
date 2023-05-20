@@ -23,7 +23,7 @@ const Login = (data: Props) => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Login | {tenant?.name}</title>
+        <title>{tenant?.name}</title>
       </Head>
       <Header
         color={tenant?.mainColor}
