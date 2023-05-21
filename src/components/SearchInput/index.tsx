@@ -17,6 +17,7 @@ const SearchInput = ({ onSearch }: Props) => {
   const handleKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.code === 'Enter') {
       onSearch(searchValue)
+      setSearchValue('')
     }
   }
 
@@ -25,10 +26,11 @@ const SearchInput = ({ onSearch }: Props) => {
       style={{ borderColor: focused ? tenant?.mainColor : '#ffffff', transition: '500ms' }}>
       <div
         className={styles.button}
-        onClick={() => onSearch(searchValue)}
+        onClick={() => (onSearch(searchValue), setSearchValue(''))}
       >
         <SearchIcon color={tenant?.mainColor} />
       </div>
+
       <input type='text'
         className={styles.input}
         onFocus={() => setFocused(true)}
@@ -38,6 +40,7 @@ const SearchInput = ({ onSearch }: Props) => {
         onKeyUp={handleKeyUp}
         onChange={(e) => setSearchValue(e.target.value)}
       />
+
     </div>
   )
 }

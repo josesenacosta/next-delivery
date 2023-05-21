@@ -1,6 +1,6 @@
 import Header from '@/components/Header'
 import { useAppContext } from '@/contexts/AppContext'
-import { useApi } from '@/libs/useApi'
+import useApi from '@/libs/useApi'
 import { Tenant } from '@/types/Tenant'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
@@ -29,34 +29,13 @@ type Props = {
   tenant: Tenant
 }
 
-const getTenant = (tenantSlug: string): boolean | Tenant => {
-  switch (tenantSlug) {
-    case 'next-delivery':
-      return {
-        slug: 'next-delivery',
-        name: 'NextDelivery',
-        mainColor: '#FB9400',
-        secondColor: '#FFF9F2'
-      }
-      break;
-    case 'art-burger':
-      return {
-        slug: 'art-burger',
-        name: 'ArtBurger',
-        mainColor: '#9139BA',
-        secondColor: '#F0E3F6'
-      }
-      break;
-    default: return false
-  }
-}
 
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { tenant: tenantSlug } = context.query;
 
   //Get Tenant
-  const tenant = await getTenant(tenantSlug as string);
+  const tenant = await useApi.useGetTenant(tenantSlug as string);
   if (!tenant) {
     return {
       redirect: {

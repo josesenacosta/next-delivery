@@ -7,7 +7,7 @@ import { GetServerSideProps } from 'next';
 import { useAppContext } from '@/contexts/AppContext';
 import { useEffect } from 'react';
 import { Tenant } from '@/types/Tenant';
-import { useApi } from '@/libs/useApi';
+import useApi from '@/libs/useApi';
 
 const Home = (data: Props) => {
 
@@ -76,10 +76,11 @@ type Props = {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { tenant: tenantSlug } = context.query;
-  const api = useApi();
+
 
   //Get Tenant
-  const tenant = await api.getTenant(tenantSlug as string);
+  const tenant = await useApi.useGetTenant(tenantSlug as string);
+
   if (!tenant) {
     return {
       redirect: {
