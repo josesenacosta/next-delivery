@@ -8,6 +8,7 @@ import { useAppContext } from '@/contexts/AppContext';
 import { useEffect } from 'react';
 import { Tenant } from '@/types/Tenant';
 import useApi from '@/libs/useApi';
+import Link from 'next/link';
 
 const Home = (data: Props) => {
 
@@ -32,7 +33,10 @@ const Home = (data: Props) => {
             <div className={styles.headerSubTitle}>O que deja para hoje?</div>
           </div>
           <div className={styles.headerTopRight}>
-            <div className={styles.menuButton} style={{ color: tenant?.mainColor }}></div>
+            <Link href={`/${tenant?.slug}/login`}>
+              <div className={styles.menuButton} style={{ color: tenant?.mainColor }}></div>
+            </Link>
+
           </div>
         </div>
         <div className={styles.headerBottom}>
